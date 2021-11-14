@@ -12,7 +12,7 @@ export default function ProductCard(props) {
       <Link
         style={{ textDecoration: "none" }}
         to={{
-          pathname: "/products",
+          pathname: `/products/${name}`,
           state: name,
         }}
       >

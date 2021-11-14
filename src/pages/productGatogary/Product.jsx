@@ -31,12 +31,7 @@ export function Product() {
 
       <Grid container spacing={8} justifyContent="center" alignItems="center">
         {productGategorys.map((elem) => (
-          <ProductCard
-            name={elem.name}
-            img={elem.img}
-            id={elem._id}
-            key={elem._id}
-          />
+          <ProductCard {...elem} key={elem._id} />
         ))}
       </Grid>
     </div>

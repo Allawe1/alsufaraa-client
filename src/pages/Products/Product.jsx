@@ -27,7 +27,9 @@ export function Products(props) {
       state: "Arabic",
     };
   }
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1224px)' })
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 1224px)",
+  });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const [open, setOpen] = React.useState(false);
   const [product, setProduct] = useState({
@@ -40,7 +42,9 @@ export function Products(props) {
   const [isLoading, setIsLoading] = useState(false);
   const fetchData = () => {
     axios
-      .get(`https://alsufaraa-client-zmcto.ondigitalocean.app/alsufaraa/api/productGategorys/products/${emp.state}`)
+      .get(
+        `https://alsufaraa-client-zmcto.ondigitalocean.app/alsufaraa/api/productGategorys/products/${emp.state}`
+      )
       .then((response) => {
         setIsLoading(false);
         setNotes(response.data[0].product);
@@ -52,57 +56,17 @@ export function Products(props) {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchData()
+    fetchData();
   }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-
-  // const dispatch = useDispatch();
-  // console.log(emp.state);
-  // useEffect(() => {
-  //   dispatch(getProductGategorysProduct(emp.state));
-  // }, [dispatch]);
-
-  // var productGategorys = useSelector((state) => state.productGategorys.data);
-  // console.log(productGategorys);
-  // const productGategoryName = ["arabic", "tanor", "cake", "pastry", "toast"];
-  //  var selectedGatogary='arabic';
- 
-  // if (
-  //   notes[0].productGategory  == "6144e629e151f5246478a862"
-  // ) {
-  //   selectedGatogary = productGategoryName[0];
-  // } else if (
-  //   notes[0].productGategory == "6144b6996840c728943b15d4"
-  // ) {
-  //   selectedGatogary = productGategoryName[2];
-  // } else if (
-  //   notes[0].productGategory == "6144b6ac6840c728943b15d8"
-  // ) {
-  //   selectedGatogary = productGategoryName[3];
-  // } else if (
-  //   notes[0].productGategory  == "6144b6a36840c728943b15d6"
-  // ) {
-  //   selectedGatogary = productGategoryName[1];
-  // } else if (
-  //   notes[0].productGategory  == "615f0478d01dc03d889d09d8"
-  // ) {
-  //   selectedGatogary = productGategoryName[4];
-  // }
-
-  // productGategorys[0].product = productGategorys[0].product.filter(
-  //   (item) => item.availability === "yes"
-  // );
-
-  
   const handleClose = () => {
     setOpen(false);
   };
-  
- 
+
   function sendProduct(elem) {
     if (isTabletOrMobile) {
       props.history.push({ pathname: "/productDetails", state: elem });
@@ -173,7 +137,13 @@ export function Products(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Grid container justifyContent="center" alignItems="flex-start" direction="row" spacing={0}>
+            <Grid
+              container
+              justifyContent="center"
+              alignItems="flex-start"
+              direction="row"
+              spacing={0}
+            >
               <Grid xs={6} item>
                 <img
                   width={500}
@@ -205,7 +175,7 @@ export function Products(props) {
                     className={classes.productSmallDivider}
                   />
                   <Typography className={classes.ProductInfo}>
-                  {product.ingredients}
+                    {product.ingredients}
                   </Typography>
                 </Container>
               </Grid>

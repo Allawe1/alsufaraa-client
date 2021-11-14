@@ -1,4 +1,3 @@
-
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Product from "../src/pages/productGatogary";
@@ -7,11 +6,9 @@ import ContactUs from "./pages/contactUS/";
 import Products from "./pages/Products";
 import AboutUS from "./pages/aboutUS/AboutUS";
 import Gallerys from "./pages/gallery";
-import  NotFoundPage  from "./pages/pageNotFound/";
+import NotFoundPage from "./pages/pageNotFound/";
 import ProductDetails from "./pages/productDetails/";
 import { Footer, Header } from "./components/layouts";
-
-
 
 // const NavRoute = ({ exact, path, component: Component }) => (
 //   <Route
@@ -28,7 +25,6 @@ import { Footer, Header } from "./components/layouts";
 // );
 
 const App = () => {
-  
   return (
     <div>
       <Router>
@@ -38,7 +34,12 @@ const App = () => {
           <Route path="/aboutus" exact component={AboutUS} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/product" exact component={Product} />
-          <Route path="/products" exact component={Products} />
+          <Route
+            path="/products/:name"
+            children={<Products />}
+            exact
+            component={Products}
+          />
           <Route path="/gallery" exact component={Gallerys} />
           <Route path="/productDetails" exact component={ProductDetails} />
           <Route path="*" component={NotFoundPage} />
