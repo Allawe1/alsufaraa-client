@@ -12,7 +12,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import React, { useEffect, useState } from "react";
 import { useStyles } from "./Styles";
 import product1 from "../../images/product1.jpg";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import { SpinnerInfinity } from "spinners-react";
@@ -20,7 +20,7 @@ import { SpinnerInfinity } from "spinners-react";
 export function Products(props) {
   const classes = useStyles();
   var emp = useLocation();
-
+  let history = useHistory();
   if (emp.state === undefined) {
     emp = {
       hash: "",
@@ -68,7 +68,7 @@ export function Products(props) {
 
   function sendProduct(elem) {
     if (isTabletOrMobile) {
-      props.history.push({ pathname: "/productDetails", state: elem });
+      history.push({ pathname: "/productDetails", state: elem });
     } else {
       setProduct({
         name: elem.name,

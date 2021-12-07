@@ -24,15 +24,12 @@ export function ContactUs() {
   const classes = useStyles();
 
   function sendEmail(e) {
-    console.log("submit");
     e.preventDefault();
     var value = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value,
     };
-    console.log(value);
-    console.log(e.target);
 
     emailjs
       .sendForm(
@@ -42,7 +39,7 @@ export function ContactUs() {
         "user_Adwdn8MxIFhGPFYBogyW0"
       )
       .then((res) => {
-        console.log(res);
+        console.log("email sent!");
       })
       .catch((err) => {
         console.log(err);
@@ -122,9 +119,10 @@ export function ContactUs() {
           </Grid>
           <Grid xs="auto" item>
             <Container>
-              <Typography className={classes.header}>Contact US</Typography>
+              <Typography className={classes.header1}>Contact US</Typography>
               <Divider variant="inset" className={classes.smallDivider1} />
               <Grid
+                style={{ marginTop: 30 }}
                 container
                 direction="column"
                 spacing={4}

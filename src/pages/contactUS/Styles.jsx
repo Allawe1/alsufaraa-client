@@ -6,15 +6,13 @@ export const useStyles = makeStyles((theme) => ({
     background: "#edca82",
     padding: "100px",
     position: "relative",
-    [theme.breakpoints.only('xs')]: {
+    [theme.breakpoints.only("xs")]: {
       marginTop: 715,
-     },
-     [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+    },
+    [`${theme.breakpoints.only("sm")} and (orientation: landscape)`]: {
       marginTop: 0,
       padding: "50px ",
-      
-     },
-     
+    },
   },
   smallDivider: {
     height: "3px",
@@ -43,6 +41,16 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: "26px",
     textAlign: "center",
   },
+  header1: {
+    fontFamily: "Signika",
+    fontSize: "32px",
+    color: "#30271c",
+    fontWeight: "400",
+    fontStyle: "normal",
+    lineHeight: "26px",
+    textAlign: "center",
+    marginTop: "-35px",
+  },
   submit: {
     backgroundColor: "#c7a17a",
     padding: "0 50px",
@@ -53,9 +61,9 @@ export const useStyles = makeStyles((theme) => ({
     height: 45,
     fontWeight: 900,
     borderWidth: 0,
-    cursor: 'pointer',
-    margin: 'auto',
-    display: 'block',
+    cursor: "pointer",
+    margin: "auto",
+    display: "block",
   },
   text: {
     fontFamily: "Signika",
@@ -77,6 +85,6 @@ export const useStyles = makeStyles((theme) => ({
   card: {
     backgroundColor: "#edca82",
     opacity: ".8",
-    width : 300
+    width: 300,
   },
 }));
