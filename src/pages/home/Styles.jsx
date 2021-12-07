@@ -2,42 +2,36 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   main: {
-    paddingTop : 550,
-    textAlign : 'center',
+    paddingTop: 550,
+    textAlign: "center",
     position: "relative",
-    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+    [`${theme.breakpoints.only("sm")} and (orientation: landscape)`]: {
       marginTop: -50,
       padding: "50px ",
-      margin : '-50px -50px'
-      
-     },
-  
+      margin: "-50px -50px",
+    },
   },
   home: {
-    justifyContent: 'center',
+    justifyContent: "center",
     backgroundColor: "#edca82",
-    [theme.breakpoints.only('lg')]: {
-      padding : '120px',
-    
-     },
-     [theme.breakpoints.only('md')]: {
-      padding : '100px 20px',
-      
-     },
-     [theme.breakpoints.only('sm')]: {
-      padding : '100px 50px',
-     },
-     [theme.breakpoints.only('xs')]: {
-      padding : '80px 10px',
-      marginTop : 165
-     },
-     
+    [theme.breakpoints.only("lg")]: {
+      padding: "120px",
+    },
+    [theme.breakpoints.only("md")]: {
+      padding: "100px 20px",
+    },
+    [theme.breakpoints.only("sm")]: {
+      padding: "100px 50px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      padding: "80px 10px",
+      marginTop: 165,
+    },
   },
   Home2: {
     textAlign: "center",
-    padding : '90px 0px',
+    padding: "90px 0px",
     backgroundColor: "#f0d49b",
-
   },
   h2: {
     fontSize: "30px",
@@ -51,9 +45,9 @@ export const useStyles = makeStyles((theme) => ({
     color: "#30271c",
     fontFamily: "Signika",
   },
-  grid : {
-    [theme.breakpoints.down('sm')]: {
-      justifyContent : 'center'
+  grid: {
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
     },
   },
   divider: {},
@@ -67,40 +61,43 @@ export const useStyles = makeStyles((theme) => ({
     objectFit: "cover", // 16:9
   },
   card: {
-    textAlign : 'center',
-    border: "none", boxShadow: "none",
+    textAlign: "center",
+    border: "none",
+    boxShadow: "none",
     margin: "auto",
     position: "relative",
-    width : '100%',
-    height : '100%',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop : 28,
-      backgroundColor : 'transparent ',
-      border : 0
+    width: "100%",
+    height: "100%",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 28,
+      backgroundColor: "transparent ",
+      border: 0,
     },
-    [theme.breakpoints.only('xs')]: {
-      paddingTop : 2,
+    [theme.breakpoints.only("xs")]: {
+      paddingTop: 2,
     },
   },
   cardBig: {
-    border: "none", boxShadow: "none",
+    border: "none",
+    boxShadow: "none",
     margin: "auto",
     position: "relative",
-    width : '100%',
-    height : '100%'
+    width: "100%",
+    height: "100%",
   },
   cardMd: {
-    border: "none", boxShadow: "none",
+    border: "none",
+    boxShadow: "none",
     margin: "auto",
     position: "relative",
-    width : '100%',
-    height : '100%',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop : 28,
-      backgroundColor : 'transparent '
+    width: "100%",
+    height: "100%",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 28,
+      backgroundColor: "transparent ",
     },
-    [theme.breakpoints.only('xs')]: {
-      paddingBottom : 28,
+    [theme.breakpoints.only("xs")]: {
+      paddingBottom: 28,
     },
   },
   overlay: {
@@ -113,7 +110,7 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: "Signika",
     fontWeight: "600",
     padding: "0 0 20px",
-    [theme.breakpoints.only('xs')]: {
+    [theme.breakpoints.only("xs")]: {
       top: "50%",
       left: "30%",
     },
@@ -128,12 +125,12 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: "Signika",
     fontWeight: "600",
     padding: "0 0 20px",
-    [theme.breakpoints.only('xs')]: {
+    [theme.breakpoints.only("xs")]: {
       top: "50%",
       left: "30%",
     },
   },
-  
+
   smallDivider: {
     height: "3px",
     marginTop: "25px",
@@ -157,9 +154,9 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: "-20px",
     paddingRight: "-20px",
   },
-  paddingOnTopInSm : {
-    [theme.breakpoints.only('sm')]: {
-      paddingTop : 28
+  paddingOnTopInSm: {
+    [theme.breakpoints.only("sm")]: {
+      paddingTop: 28,
     },
   },
 }));

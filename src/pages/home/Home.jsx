@@ -6,22 +6,34 @@ import { ProductCard } from "./Components/Card";
 import { useStyles } from "./Styles";
 import { Link } from "react-router-dom";
 import { Card, Grid } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
 import { getBestSelling } from "../../redux/actions/bestSelling";
-import productList from '../../images/productList.jpg'
-import gallery from '../../images/gallery.png'
-import about from '../../images/about.jpg'
-import contact from '../../images/contact.png'
-function Home() {
-  const classes = useStyles();
-  const dispatch = useDispatch(); 
-  useEffect(() => {
-    localStorage.clear()
-    dispatch(getBestSelling());
-  }, [dispatch]);
- 
+import productList from "../../images/productList.jpg";
+import gallery from "../../images/gallery.png";
+import about from "../../images/about.jpg";
+import contact from "../../images/contact.png";
+import { useState } from "react";
+import { SpinnerInfinity } from "spinners-react";
 
-  var bestSelling = useSelector((state) => state.bestSelling);
+const mapStateToProps = (state) => {
+  return { bestSelling: state.bestSelling };
+};
+const mapDispatchToProps = (dispatch) => {
+  return { getBestSelling: () => dispatch(getBestSelling()) };
+};
+function Home(props) {
+  const [isLoading, setLoading] = useState(true);
+  const classes = useStyles();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    localStorage.clear();
+    props.getBestSelling();
+    if (props.bestSelling) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [dispatch]);
 
   // useEffect(() => {
   //   window.scrollTo(0, 0);
@@ -30,11 +42,11 @@ function Home() {
     <div className={classes.main}>
       <div className={classes.home}>
         <Typography variant="h2" className={classes.h2}>
-          Welcome to ALSUFARA!
+          Welcome to ALSUFARAA!
         </Typography>
         <Divider variant="inset" className={classes.bigDivider} />
         <Typography variant="h1" className={classes.h1}>
-          Choose what you looking for
+          Choose what you are looking for
         </Typography>
         <Divider variant="inset" className={classes.smallDivider} />
         <br />
@@ -47,7 +59,7 @@ function Home() {
                     src={productList}
                     className={classes.image}
                     alt="Home"
-                    title = 'Home'
+                    title="Home"
                   />
                   <div className={classes.overlay}>Product</div>
                 </Link>
@@ -60,7 +72,7 @@ function Home() {
                     src={gallery}
                     className={classes.image}
                     alt="Gallery"
-                    title = 'Gallery'
+                    title="Gallery"
                   />
                   <div className={classes.overlay}>Gallery</div>
                 </Link>
@@ -74,7 +86,7 @@ function Home() {
                       src={about}
                       className={classes.image}
                       alt="About US"
-                      title = 'About US'
+                      title="About US"
                     />
                     <div className={classes.overlaySmall}>About us</div>
                   </Link>
@@ -87,7 +99,7 @@ function Home() {
                       src={contact}
                       className={classes.image}
                       alt="Contact US"
-                      title = 'Contact US'
+                      title="Contact US"
                     />
                     <div className={classes.overlaySmall}>Contact Us</div>
                   </Link>
@@ -105,22 +117,32 @@ function Home() {
         <Divider variant="inset" className={classes.smallDivider} />
         <br />
         <br />
-        <Grid
-          container
-          spacing={2}
-          className={classes.productGrid}
-          justifyContent="center"
-          alignItems="center"
-        >
-          {bestSelling.map((elem) => (
-            <Grid item xs="auto" key={elem._id}>
-              <ProductCard img={elem.img} name={elem.name}></ProductCard>
-            </Grid>
-          ))}
-        </Grid>
+        {isLoading ? (
+          <SpinnerInfinity
+            size={100}
+            thickness={100}
+            speed={100}
+            color="rgba(57, 113, 172, 1)"
+            secondaryColor="rgba(0, 0, 0, 0.44)"
+          />
+        ) : (
+          <Grid
+            container
+            spacing={2}
+            className={classes.productGrid}
+            justifyContent="center"
+            alignItems="center"
+          >
+            {props.bestSelling.map((elem) => (
+              <Grid item xs="auto" key={elem._id}>
+                <ProductCard img={elem.img} name={elem.name}></ProductCard>
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </div>
     </div>
   );
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

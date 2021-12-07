@@ -15,9 +15,12 @@ import product1 from "../../images/product1.jpg";
 import { useLocation } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
+import { SpinnerInfinity } from "spinners-react";
+
 export function Products(props) {
   const classes = useStyles();
   var emp = useLocation();
+
   if (emp.state === undefined) {
     emp = {
       hash: "",
@@ -39,7 +42,7 @@ export function Products(props) {
     description: "",
   });
   const [notes, setNotes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const fetchData = () => {
     axios
       .get(
@@ -50,7 +53,7 @@ export function Products(props) {
         setNotes(response.data[0].product);
       })
       .catch((error) => {
-        setIsLoading(false);
+        setIsLoading(true);
         console.log(error);
       });
   };
@@ -58,10 +61,6 @@ export function Products(props) {
     window.scrollTo(0, 0);
     fetchData();
   }, []);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   const handleClose = () => {
     setOpen(false);
@@ -88,41 +87,51 @@ export function Products(props) {
       </Typography>
       <Divider variant="inset" className={classes.bigDivider} />
       <Typography variant="h1" className={classes.h1}>
-        Choose what you are looking for
+        {emp.state}
       </Typography>
       <Divider variant="inset" className={classes.smallDivider} />
-      <Grid
-        id="grid"
-        container
-        spacing={6}
-        justifyContent="center"
-        alignItems="center"
-        className={classes.productGrid}
-      >
-        {notes.map((elem) => (
-          <Grid item xs="auto" key={elem._id}>
-            <div>
-              <Card className={classes.card1}>
-                <CardActionArea onClick={() => sendProduct(elem)}>
-                  <img
-                    src={
-                      elem.img !== ""
-                        ? `https://alsufaraa-client-zmcto.ondigitalocean.app/alsufaraa/images/${emp.state}/${elem.img}`
-                        : product1
-                    }
-                    alt="product"
-                    title={elem.img}
-                    className={classes.media}
-                  />
-                </CardActionArea>
-              </Card>
-              <Typography className={classes.overlaySmall}>
-                {elem.name}
-              </Typography>
-            </div>
-          </Grid>
-        ))}
-      </Grid>
+      {isLoading ? (
+        <SpinnerInfinity
+          size={100}
+          thickness={100}
+          speed={100}
+          color="rgba(57, 113, 172, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+        />
+      ) : (
+        <Grid
+          id="grid"
+          container
+          spacing={6}
+          justifyContent="center"
+          alignItems="center"
+          className={classes.productGrid}
+        >
+          {notes.map((elem) => (
+            <Grid item xs="auto" key={elem._id}>
+              <div>
+                <Card className={classes.card1}>
+                  <CardActionArea onClick={() => sendProduct(elem)}>
+                    <img
+                      src={
+                        elem.img !== ""
+                          ? `https://alsufaraa-client-zmcto.ondigitalocean.app/alsufaraa/images/${emp.state}/${elem.img}`
+                          : product1
+                      }
+                      alt="product"
+                      title={elem.img}
+                      className={classes.media}
+                    />
+                  </CardActionArea>
+                </Card>
+                <Typography className={classes.overlaySmall}>
+                  {elem.name}
+                </Typography>
+              </div>
+            </Grid>
+          ))}
+        </Grid>
+      )}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

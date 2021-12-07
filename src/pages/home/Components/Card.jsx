@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
 import product1 from "../../../images/product1.jpg";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   media: {
     height: 280,
@@ -41,9 +41,15 @@ export function ProductCard(props) {
   const classes = useStyles();
 
   return (
-    <div key = {props._id}>
+    <div key={props._id}>
       <Card className={classes.card}>
-        <CardActionArea>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={{
+            pathname: `/products/${props.name}`,
+            state: props.name,
+          }}
+        >
           <CardMedia
             className={classes.media}
             image={
@@ -52,9 +58,9 @@ export function ProductCard(props) {
                 : product1
             }
             title={props.img}
-            alt = {props.img}
+            alt={props.img}
           />
-        </CardActionArea>
+        </Link>
       </Card>
       <Typography className={classes.overlaySmall}>{props.name}</Typography>
     </div>

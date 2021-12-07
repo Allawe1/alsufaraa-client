@@ -3,14 +3,11 @@ import logo2 from "../../../images/logo-removebg-preview.png";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 const Navbarr = () => {
- 
-
-  function hidden () {
-    document.getElementById('h3Hidden').classList.toggle('d-none')
+  function hidden() {
+    document.getElementById("h3Hidden").classList.toggle("d-none");
   }
 
   return (
-  
     <div className="bg-img">
       <Navbar
         collapseOnSelect
@@ -18,10 +15,15 @@ const Navbarr = () => {
         expand="md"
         variant="dark"
       >
-        <Container style={{marginTop :-15}} >
-        <Navbar.Brand  className="d-lg-none d-md-none" href="/">ALSUFRAA </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={hidden} />
-          <Navbar.Collapse id="responsive-navbar-nav" >
+        <Container style={{ marginTop: -15 }}>
+          <Navbar.Brand className="d-lg-none d-md-none" href="/">
+            ALSUFRAA{" "}
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            onClick={hidden}
+          />
+          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="justify-content-center" style={{ flex: 1 }}>
               <Nav.Item>
                 <Nav.Link className="a" href="/product">
@@ -58,13 +60,11 @@ const Navbarr = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <h3 id='h3Hidden'>
-        <span>FOR THE LOVE OF Alsufara product</span>
+      <h3 id="h3Hidden">
+        <span>FOR THE LOVE OF Alsufaraa product</span>
       </h3>
     </div>
-    
   );
 };
 
 export default Navbarr;
-

@@ -1,18 +1,36 @@
 import { Card, Divider, Grid, Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useStyles } from "./Styles";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
 import { getProductGategorys } from "../../redux/actions/productGategory";
 import ProductCard from "./ProductCard";
-export function Product() {
+import { useState } from "react";
+import { SpinnerInfinity } from "spinners-react";
+const mapStateToProps = (state) => {
+  return {
+    productGategorys: state.productGategorys,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProductGategorys: () => dispatch(getProductGategorys()),
+  };
+};
+
+function Product(props) {
+  const [isLoading, setLoading] = useState(true);
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
     localStorage.clear();
-    dispatch(getProductGategorys());
+    props.getProductGategorys();
+    if (props.productGategorys) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
   }, [dispatch]);
-
-  var productGategorys = useSelector((state) => state.productGategorys);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,12 +46,23 @@ export function Product() {
         Choose what you are looking for
       </Typography>
       <Divider variant="inset" className={classes.smallDivider} />
-
-      <Grid container spacing={8} justifyContent="center" alignItems="center">
-        {productGategorys.map((elem) => (
-          <ProductCard {...elem} key={elem._id} />
-        ))}
-      </Grid>
+      {isLoading ? (
+        <SpinnerInfinity
+          size={100}
+          thickness={100}
+          speed={100}
+          color="rgba(57, 113, 172, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+        />
+      ) : (
+        <Grid container spacing={8} justifyContent="center" alignItems="center">
+          {props.productGategorys.map((elem) => (
+            <ProductCard {...elem} key={elem._id} />
+          ))}
+        </Grid>
+      )}
     </div>
   );
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
