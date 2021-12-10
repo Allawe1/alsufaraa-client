@@ -8,7 +8,7 @@ function Gallery() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const tag = 'all'
+  const tag = "all";
   const [filteredImages, setFilteredImages] = useState([]);
   useEffect(() => {
     tag === "all"
@@ -20,24 +20,26 @@ function Gallery() {
   return (
     <div className={classes.main}>
       <div>
-      <Typography className={classes.mainHeader}>Welcome to Gallery</Typography>
-      <Divider variant="inset" className={classes.smallDivider} />
-      <div className="container mx-auto px-auto ">
-        <div className=" row ">
-          {filteredImages.map((image) => (
-            <div className="col-lg-4 col-md-6 col-sm-6 " key={image.id}>
-              <div  className={classes.imageCard}>
-                <img
-                  className={classes.image}
-                  src={`/images/${image.imageName}`}
-                  alt="test"
-                  title = 'gallery'
-                />
+        <Typography className={classes.mainHeader}>
+          Welcome to Gallery
+        </Typography>
+        <Divider variant="inset" className={classes.smallDivider} />
+        <div className="container mx-auto px-auto ">
+          <div className=" row ">
+            {filteredImages.map((image) => (
+              <div className="col-lg-4 col-md-6 col-sm-6 " key={image.id}>
+                <div className={classes.imageCard}>
+                  <img
+                    className={classes.image}
+                    src={`/images/${image.imageName}`}
+                    alt="test"
+                    title={image.tag}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

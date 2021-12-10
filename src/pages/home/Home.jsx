@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 import { Card, Grid } from "@material-ui/core";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { getBestSelling } from "../../redux/actions/bestSelling";
-import productList from "../../images/productList.jpg";
 import gallery from "../../images/gallery.png";
-import about from "../../images/about.jpg";
-import contact from "../../images/contact.png";
 import { useState } from "react";
 import { SpinnerInfinity } from "spinners-react";
-
+import navImage from "../../images/navImage (2).jpg";
+import contactPage from "../../images/contactPage.jpg";
+import aboutPage from "../../images/aboutPage.JPG";
+import product2 from "../../images/product2.jpg";
 const mapStateToProps = (state) => {
   return { bestSelling: state.bestSelling };
 };
@@ -56,12 +56,12 @@ function Home(props) {
               <Card className={classes.cardBig}>
                 <Link to="/product">
                   <img
-                    src={productList}
+                    src={product2}
                     className={classes.image}
-                    alt="Home"
-                    title="Home"
+                    alt="products page"
+                    title="products"
                   />
-                  <div className={classes.overlay}>Product</div>
+                  <div className={classes.overlay}>Products</div>
                 </Link>
               </Card>
             </div>
@@ -83,7 +83,7 @@ function Home(props) {
                 <Card className={classes.card}>
                   <Link to="/aboutUs">
                     <img
-                      src={about}
+                      src={aboutPage}
                       className={classes.image}
                       alt="About US"
                       title="About US"
@@ -96,7 +96,7 @@ function Home(props) {
                 <Card className={classes.card}>
                   <Link to="/contactUs">
                     <img
-                      src={contact}
+                      src={contactPage}
                       className={classes.image}
                       alt="Contact US"
                       title="Contact US"

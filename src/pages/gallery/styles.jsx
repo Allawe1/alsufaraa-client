@@ -10,12 +10,10 @@ export const useStyles = makeStyles((theme) => ({
       marginTop: 715,
       padding: "10px",
     },
-    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+    [`${theme.breakpoints.only("sm")} and (orientation: landscape)`]: {
       marginTop: 0,
       padding: "50px ",
-      
-     },
-    
+    },
   },
   smallDivider: {
     height: "3px",
@@ -47,15 +45,16 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   gallery: {
-    margin : 'auto'
+    margin: "auto",
   },
-  imageCard : {
-    padding: '5px',
-    margin: '5px',
-    borderRadius: '2px',
+  imageCard: {
+    padding: "5px",
+    margin: "5px",
+    borderRadius: "2px",
   },
-  
-  image :{
-    width: '100%',
-  }
+
+  image: {
+    width: "100%",
+    height: 200,
+  },
 }));
