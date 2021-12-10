@@ -32,7 +32,7 @@ function Gallery() {
                   <img
                     className={classes.image}
                     src={`/images/${image.imageName}`}
-                    alt="test"
+                    alt={image.tag}
                     title={image.tag}
                   />
                 </div>
