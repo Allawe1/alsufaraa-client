@@ -39,6 +39,9 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: "40px",
     margin: "-50px 0px 20px",
     textAlign: "end",
+    [theme.breakpoints.down("md")]: {
+      marginTop: 0,
+    },
   },
   mainHeader: {
     fontFamily: "Signika",

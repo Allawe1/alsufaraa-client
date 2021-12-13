@@ -13,7 +13,7 @@ import { useState } from "react";
 import { SpinnerInfinity } from "spinners-react";
 import navImage from "../../images/navImage (2).jpg";
 import contactPage from "../../images/contactPage.jpg";
-import aboutPage from "../../images/aboutPage.JPG";
+import aboutPage from "../../images/aboutPage.webp";
 import product2 from "../../images/product2.jpg";
 const mapStateToProps = (state) => {
   return { bestSelling: state.bestSelling };
@@ -71,7 +71,7 @@ function Home(props) {
                   <img
                     src={gallery}
                     className={classes.image}
-                    alt="Gallery"
+                    alt="Gallery page"
                     title="Gallery"
                   />
                   <div className={classes.overlay}>Gallery</div>
@@ -85,7 +85,7 @@ function Home(props) {
                     <img
                       src={aboutPage}
                       className={classes.image}
-                      alt="About US"
+                      alt="About US page"
                       title="About US"
                     />
                     <div className={classes.overlaySmall}>About us</div>
@@ -98,7 +98,7 @@ function Home(props) {
                     <img
                       src={contactPage}
                       className={classes.image}
-                      alt="Contact US"
+                      alt="Contact US page"
                       title="Contact US"
                     />
                     <div className={classes.overlaySmall}>Contact Us</div>
