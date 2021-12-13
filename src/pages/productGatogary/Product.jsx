@@ -1,7 +1,7 @@
-import { Card, Divider, Grid, Typography } from "@material-ui/core";
+import { Divider, Grid, Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useStyles } from "./Styles";
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { getProductGategorys } from "../../redux/actions/productGategory";
 import ProductCard from "./ProductCard";
 import { useState } from "react";

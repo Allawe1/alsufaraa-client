@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Gallerys from "./pages/gallery";
 // import NotFoundPage from "./pages/pageNotFound/";
 // import ProductDetails from "./pages/productDetails/";
-import { Header } from "./components/layouts";
+// import { Header } from "./components/layouts";
 import { Suspense, lazy } from "react";
 import logo from "./images/logo.webp";
 
@@ -51,7 +51,7 @@ const App = () => {
     <Router>
       <Suspense
         fallback={
-          <div class="full-page-loader">
+          <div className="full-page-loader">
             <img width="200" src={logo} alt="AIP.Trade logo" />
           </div>
         }

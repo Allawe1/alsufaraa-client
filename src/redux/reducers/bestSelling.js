@@ -1,4 +1,4 @@
-export default (bestSelling = [], action) => {
+const fun = (bestSelling = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -6,3 +6,5 @@ export default (bestSelling = [], action) => {
       return bestSelling;
   }
 };
+
+export default fun;

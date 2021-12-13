@@ -30,9 +30,9 @@ export function Products(props) {
       state: "Arabic",
     };
   }
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-device-width: 1224px)",
-  });
+  // const isDesktopOrLaptop = useMediaQuery({
+  //   query: "(min-device-width: 1224px)",
+  // });
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const [open, setOpen] = React.useState(false);
   const [product, setProduct] = useState({

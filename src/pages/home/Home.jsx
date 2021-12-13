@@ -6,7 +6,7 @@ import { ProductCard } from "./Components/Card";
 import { useStyles } from "./Styles";
 import { Link } from "react-router-dom";
 import { Card, Grid } from "@material-ui/core";
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { getBestSelling } from "../../redux/actions/bestSelling";
 import gallery from "../../images/gallery.webp";
 import { useState } from "react";

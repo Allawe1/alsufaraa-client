@@ -1,10 +1,11 @@
-export default (productGategorys = [], action) => {
+const fun = (productGategorys = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
     case "FETCH_ALL_PRODUCT":
-      return action.payload
+      return action.payload;
     default:
       return productGategorys;
   }
 };
+export default fun;

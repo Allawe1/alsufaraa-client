@@ -25,11 +25,11 @@ export function ContactUs() {
 
   function sendEmail(e) {
     e.preventDefault();
-    var value = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
-    };
+    // var value = {
+    //   name: document.getElementById("name").value,
+    //   email: document.getElementById("email").value,
+    //   message: document.getElementById("message").value,
+    // };
 
     emailjs
       .sendForm(

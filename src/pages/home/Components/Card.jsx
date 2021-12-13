@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardActionArea, CardMedia, Typography } from "@material-ui/core";
+import { Card, CardMedia, Typography } from "@material-ui/core";
 import product1 from "../../../images/product1.jpg";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({

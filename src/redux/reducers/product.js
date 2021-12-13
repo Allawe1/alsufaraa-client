@@ -1,4 +1,4 @@
-export default (product = [], action) => {
+const fun = (product = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -8,3 +8,4 @@ export default (product = [], action) => {
       return product;
   }
 };
+export default fun;
