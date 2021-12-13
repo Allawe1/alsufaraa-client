@@ -15,20 +15,6 @@ export const useStyles = makeStyles((theme) => ({
       padding: "50px ",
     },
   },
-  smallDivider: {
-    height: "3px",
-    marginTop: "25px",
-    backgroundColor: "#097770",
-    width: "90px",
-    display: "block",
-    position: "relative",
-    margin: "10px 0px 20px",
-
-    [theme.breakpoints.up("lg")]: {
-      right: 250,
-      marginLeft: "750px",
-    },
-  },
 
   header: {
     fontFamily: "Signika",

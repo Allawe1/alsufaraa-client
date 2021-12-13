@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import ProductDetails from "./pages/productDetails/";
 import { Header } from "./components/layouts";
 import { Suspense, lazy } from "react";
+import logo from "./images/logo.webp";
 
 // const NavRoute = ({ exact, path, component: Component }) => (
 //   <Route
@@ -48,11 +49,16 @@ const Footer = lazy(() => import("./components/layouts/footer/Footer.jsx"));
 const App = () => {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div class="full-page-loader">
+            <img width="200" src={logo} alt="AIP.Trade logo" />
+          </div>
+        }
+      >
         <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
-
           <Route path="/aboutus" exact component={AboutUS} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/product" exact component={Product} />
