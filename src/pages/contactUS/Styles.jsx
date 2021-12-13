@@ -50,6 +50,9 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: "26px",
     textAlign: "center",
     marginTop: "-35px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 0,
+    },
   },
   submit: {
     backgroundColor: "#c7a17a",
