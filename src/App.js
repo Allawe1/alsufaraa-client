@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Gallerys from "./pages/gallery";
 // import NotFoundPage from "./pages/pageNotFound/";
 // import ProductDetails from "./pages/productDetails/";
-import { Footer, Header } from "./components/layouts";
+import { Header } from "./components/layouts";
 import { Suspense, lazy } from "react";
 
 // const NavRoute = ({ exact, path, component: Component }) => (
@@ -25,7 +25,7 @@ import { Suspense, lazy } from "react";
 //   />
 // );
 
-// const NavBar = lazy(() => import("./components/layouts/header/Header.jsx"));
+const NavBar = lazy(() => import("./components/layouts/header/Header.jsx"));
 
 const Home = lazy(() => import("./pages/home"));
 
@@ -43,13 +43,16 @@ const NotFoundPage = lazy(() => import("./pages/pageNotFound/"));
 
 const ProductDetails = lazy(() => import("./pages/productDetails"));
 
+const Footer = lazy(() => import("./components/layouts/footer/Footer.jsx"));
+
 const App = () => {
   return (
     <Router>
-      <Header />
-      <Switch>
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <NavBar />
+        <Switch>
           <Route path="/" exact component={Home} />
+
           <Route path="/aboutus" exact component={AboutUS} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/product" exact component={Product} />
@@ -61,10 +64,12 @@ const App = () => {
           />
           <Route path="/gallery" exact component={Gallerys} />
           <Route path="/productDetails" exact component={ProductDetails} />
-        </Suspense>
-        <Route path="*" component={NotFoundPage} />
-      </Switch>
-      <Footer />
+
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+
+        <Footer />
+      </Suspense>
     </Router>
   );
 };
