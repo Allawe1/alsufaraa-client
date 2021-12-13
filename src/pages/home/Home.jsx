@@ -8,13 +8,12 @@ import { Link } from "react-router-dom";
 import { Card, Grid } from "@material-ui/core";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { getBestSelling } from "../../redux/actions/bestSelling";
-import gallery from "../../images/gallery.png";
+import gallery from "../../images/gallery.webp";
 import { useState } from "react";
 import { SpinnerInfinity } from "spinners-react";
-import navImage from "../../images/navImage (2).jpg";
-import contactPage from "../../images/contactPage.jpg";
+import contactPage from "../../images/contactPage.webp";
 import aboutPage from "../../images/aboutPage.webp";
-import product2 from "../../images/product2.jpg";
+import product2 from "../../images/productPage.webp";
 const mapStateToProps = (state) => {
   return { bestSelling: state.bestSelling };
 };
