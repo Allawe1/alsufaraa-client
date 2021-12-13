@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo2 from "../../../images/logo-removebg-preview.png";
+import logo2 from "../../../images/logo.webp";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 const Navbarr = () => {
