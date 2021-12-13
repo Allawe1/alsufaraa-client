@@ -1,6 +1,7 @@
 import { Container, Divider, Grid, Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useStyles } from "./styles";
+import logo from "../../images/logo2.jpg";
 function AboutUS() {
   const classes = useStyles();
   useEffect(() => {
@@ -21,7 +22,7 @@ function AboutUS() {
           <Grid xs="auto" lg={6} item>
             <img
               className={classes.image}
-              src="http://patisseriemaxime.co.uk/wp-content/uploads/2015/05/about-us.png"
+              src={logo}
               alt="aboutUs"
               title="aboutUs"
             />

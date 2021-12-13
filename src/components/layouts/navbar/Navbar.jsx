@@ -61,7 +61,7 @@ const Navbarr = () => {
         </Container>
       </Navbar>
       <h3 id="h3Hidden">
-        <span>FOR THE LOVE OF Alsufaraa product</span>
+        <span>FOR THE LOVE OF Alsufaraa products</span>
       </h3>
     </div>
   );

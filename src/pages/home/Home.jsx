@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { Card, Grid } from "@material-ui/core";
 import { useDispatch, connect } from "react-redux";
 import { getBestSelling } from "../../redux/actions/bestSelling";
-import gallery from "../../images/gallery.webp";
+import gallery from "../../images/galleryPage.webp";
 import { useState } from "react";
 import { SpinnerInfinity } from "spinners-react";
 import contactPage from "../../images/contactPage.webp";
