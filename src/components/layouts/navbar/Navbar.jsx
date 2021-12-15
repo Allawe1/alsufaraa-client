@@ -4,7 +4,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 const Navbarr = () => {
   function hidden() {
-    document.getElementById("h3Hidden").classList.toggle("d-none");
+    document.getElementsByClassName("h3Hidden").classList.toggle("d-none");
   }
 
   return (
@@ -60,9 +60,9 @@ const Navbarr = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <h3 id="h3Hidden">
+      {/* <h3 className="h3Hidden">
         <span>FOR THE LOVE OF Alsufaraa products</span>
-      </h3>
+      </h3> */}
     </div>
   );
 };
