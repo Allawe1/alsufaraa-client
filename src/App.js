@@ -8,7 +8,7 @@ import Home from "./pages/home";
 // import Gallerys from "./pages/gallery";
 // import ProductDetails from "./pages/productDetails/";
 import NotFoundPage from "./pages/pageNotFound/";
-import { Header } from "./components/layouts";
+import { Header, Footer } from "./components/layouts";
 import { Suspense, lazy } from "react";
 import logo from "./images/logo.webp";
 
@@ -44,7 +44,7 @@ const ProductDetails = lazy(() => import("./pages/productDetails"));
 
 // const NotFoundPage = lazy(() => import("./pages/pageNotFound/"));
 
-const Footer = lazy(() => import("./components/layouts/footer/Footer.jsx"));
+// const Footer = lazy(() => import("./components/layouts/footer/Footer.jsx"));
 
 const App = () => {
   return (
@@ -80,9 +80,8 @@ const App = () => {
         </Suspense>
         <Route path="*" component={NotFoundPage} />
       </Switch>
-      <Suspense fallback={<div>loading..</div>}>
-        <Footer />
-      </Suspense>
+
+      <Footer />
       {/* </Suspense> */}
     </Router>
   );
