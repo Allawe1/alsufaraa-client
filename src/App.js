@@ -77,8 +77,8 @@ const App = () => {
           />
           <Route path="/gallery" exact component={Gallerys} />
           <Route path="/productDetails" exact component={ProductDetails} />
+          <Route path="*" component={NotFoundPage} />
         </Suspense>
-        <Route path="*" component={NotFoundPage} />
       </Switch>
 
       <Footer />
