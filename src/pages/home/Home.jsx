@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Home.css";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import LazyLoad from "react-lazyload";
 import { ProductCard } from "./Components/Card";
 import { useStyles } from "./Styles";
 import { Link } from "react-router-dom";
@@ -134,7 +135,9 @@ function Home(props) {
           >
             {props.bestSelling.map((elem) => (
               <Grid item xs="auto" key={elem._id}>
-                <ProductCard img={elem.img} name={elem.name}></ProductCard>
+                <LazyLoad once>
+                  <ProductCard img={elem.img} name={elem.name}></ProductCard>
+                </LazyLoad>
               </Grid>
             ))}
           </Grid>

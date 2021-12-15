@@ -1,14 +1,14 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/home";
 // import Product from "../src/pages/productGatogary";
-// import Home from "./pages/home";
 // import ContactUs from "./pages/contactUS/";
 // import Products from "./pages/Products";
 // import AboutUS from "./pages/aboutUS/AboutUS";
 // import Gallerys from "./pages/gallery";
-// import NotFoundPage from "./pages/pageNotFound/";
 // import ProductDetails from "./pages/productDetails/";
-// import { Header } from "./components/layouts";
+import NotFoundPage from "./pages/pageNotFound/";
+import { Header } from "./components/layouts";
 import { Suspense, lazy } from "react";
 import logo from "./images/logo.webp";
 
@@ -26,9 +26,9 @@ import logo from "./images/logo.webp";
 //   />
 // );
 
-const NavBar = lazy(() => import("./components/layouts/header/Header.jsx"));
+// const Header = lazy(() => import("./components/layouts/header/Header.jsx"));
 
-const Home = lazy(() => import("./pages/home"));
+// const Home = lazy(() => import("./pages/home"));
 
 const Product = lazy(() => import("../src/pages/productGatogary"));
 
@@ -40,25 +40,32 @@ const AboutUS = lazy(() => import("./pages/aboutUS/AboutUS"));
 
 const Gallerys = lazy(() => import("./pages/gallery"));
 
-const NotFoundPage = lazy(() => import("./pages/pageNotFound/"));
-
 const ProductDetails = lazy(() => import("./pages/productDetails"));
+
+// const NotFoundPage = lazy(() => import("./pages/pageNotFound/"));
 
 const Footer = lazy(() => import("./components/layouts/footer/Footer.jsx"));
 
 const App = () => {
   return (
     <Router>
-      <Suspense
+      {/* <Suspense
         fallback={
           <div className="full-page-loader">
             <img width="200" src={logo} alt="AIP.Trade logo" />
           </div>
         }
-      >
-        <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home} />
+      > */}
+      <Header />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Suspense
+          fallback={
+            <div className="full-page-loader">
+              <img width="200" src={logo} alt="AIP.Trade logo" />
+            </div>
+          }
+        >
           <Route path="/aboutus" exact component={AboutUS} />
           <Route path="/contactus" exact component={ContactUs} />
           <Route path="/product" exact component={Product} />
@@ -70,12 +77,13 @@ const App = () => {
           />
           <Route path="/gallery" exact component={Gallerys} />
           <Route path="/productDetails" exact component={ProductDetails} />
-
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
-
+        </Suspense>
+        <Route path="*" component={NotFoundPage} />
+      </Switch>
+      <Suspense fallback={<div>loading..</div>}>
         <Footer />
       </Suspense>
+      {/* </Suspense> */}
     </Router>
   );
 };
