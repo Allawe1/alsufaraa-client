@@ -8,7 +8,8 @@ import Home from "./pages/home";
 // import Gallerys from "./pages/gallery";
 // import ProductDetails from "./pages/productDetails/";
 import NotFoundPage from "./pages/pageNotFound/";
-import { Header, Footer } from "./components/layouts";
+import { Header } from "./components/layouts";
+import { Footer } from "./components/layouts";
 import { Suspense, lazy } from "react";
 import logo from "./images/logo.webp";
 
@@ -56,7 +57,9 @@ const App = () => {
           </div>
         }
       > */}
+
       <Header />
+
       <Switch>
         <Route path="/" exact component={Home} />
         <Suspense

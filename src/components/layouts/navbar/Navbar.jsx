@@ -3,9 +3,9 @@ import logo2 from "../../../images/logo.webp";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 const Navbarr = () => {
-  function hidden() {
-    document.getElementsByClassName("h3Hidden").classList.toggle("d-none");
-  }
+  // function hidden() {
+  //   document.getElementsByClassName("h3Hidden").classList.toggle("d-none");
+  // }
 
   return (
     <div className="bg-img">
@@ -21,7 +21,7 @@ const Navbarr = () => {
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
-            onClick={hidden}
+            // onClick={hidden}
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="justify-content-center" style={{ flex: 1 }}>
@@ -60,9 +60,9 @@ const Navbarr = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* <h3 className="h3Hidden">
+      <h3 className="h3Hidden">
         <span>FOR THE LOVE OF Alsufaraa products</span>
-      </h3> */}
+      </h3>
     </div>
   );
 };

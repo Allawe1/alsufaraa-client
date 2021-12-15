@@ -116,6 +116,9 @@
     width: 100%;
     height: 190%;
   }
+  .h3Hidden {
+    display: none;
+  }
 }
 @media (min-width: 650px) and (max-width: 690px) {
   .bg-img {
